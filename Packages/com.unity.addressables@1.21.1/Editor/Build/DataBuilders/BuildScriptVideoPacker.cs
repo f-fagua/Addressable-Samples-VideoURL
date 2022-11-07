@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.Build.Pipeline.Interfaces;
 using UnityEngine;
 
@@ -59,6 +60,16 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             }
 
             return result;
+        }
+
+        protected override string ProcessAllGroups(AddressableAssetsBuildContext aaContext)
+        {
+            return base.ProcessAllGroups(aaContext);
+        }
+
+        protected override string ProcessGroup(AddressableAssetGroup assetGroup, AddressableAssetsBuildContext aaContext)
+        {
+            return base.ProcessGroup(assetGroup, aaContext);
         }
     }
 }
