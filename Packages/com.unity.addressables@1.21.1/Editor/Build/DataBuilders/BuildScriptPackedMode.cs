@@ -94,7 +94,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             return result;
         }
 
-        private TResult CreateErrorResult<TResult>(string errorString, AddressablesDataBuilderInput builderInput, AddressableAssetsBuildContext aaContext) where TResult : IDataBuilderResult
+        protected TResult CreateErrorResult<TResult>(string errorString, AddressablesDataBuilderInput builderInput, AddressableAssetsBuildContext aaContext) where TResult : IDataBuilderResult
         {
             BuildLayoutGenerationTask.GenerateErrorReport(errorString, aaContext, builderInput.PreviousContentState);
             return AddressableAssetBuildResult.CreateResult<TResult>(null, 0, errorString);
@@ -754,7 +754,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
         /// <summary>
         /// A temporary list of the groups that get processed during a build.
         /// </summary>
-        List<AddressableAssetGroup> m_IncludedGroupsInBuild = new List<AddressableAssetGroup>();
+        protected List<AddressableAssetGroup> m_IncludedGroupsInBuild = new List<AddressableAssetGroup>();
 
         /// <summary>
         /// The processing of the bundled asset schema.  This is where the bundle(s) for a given group are actually setup.

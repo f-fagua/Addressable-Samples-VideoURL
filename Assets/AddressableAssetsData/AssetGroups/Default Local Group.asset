@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: c7f7f210bbace4833a6bc18e2d213e2a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 34d54551813bf45aa94737fbf42abce0
+    m_Address: Assets/Video/video.mp4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 233c099a563b24572ac36a24ef86a0eb, type: 2}
   m_SchemaSet:

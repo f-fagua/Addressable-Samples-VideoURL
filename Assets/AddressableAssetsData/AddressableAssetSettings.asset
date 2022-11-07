@@ -32,10 +32,10 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 33e36450bff5a4dd3aefa7359186df4a
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: 13e0f071e524c4c3b800ef062196b4ad
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1cdedfbe25a0f4800ac331e6561cd115, type: 2}
   - {fileID: 11400000, guid: 2760037a71d25456faf97047ad1c5165, type: 2}
   - {fileID: 11400000, guid: 3b546b278b02e449ab1421f4f96522c5, type: 2}
-  - {fileID: 11400000, guid: 7ef07656ef92347529070e0b0cdc2d5a, type: 2}
+  - {fileID: 11400000, guid: 99f4e6f60bed744f6bab13fa9587276f, type: 2}
   m_ActiveProfileId: 0067235d1ec10494a976c5956becca9c
   m_HostingServicesManager:
     m_HostingServiceInfos: []
