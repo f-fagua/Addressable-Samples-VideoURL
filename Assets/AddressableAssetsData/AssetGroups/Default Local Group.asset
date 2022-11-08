@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: c7f7f210bbace4833a6bc18e2d213e2a
   m_SerializeEntries:
+  - m_GUID: 14a24662baafc4575ab91f4fccec8962
+    m_Address: Assets/Cube.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 34d54551813bf45aa94737fbf42abce0
     m_Address: Assets/Video/video.mp4
     m_ReadOnly: 0

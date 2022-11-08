@@ -38,11 +38,11 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
         }
 
         internal List<ObjectInitializationData> m_ResourceProviderData;
-        List<AssetBundleBuild> m_AllBundleInputDefs;
+        protected List<AssetBundleBuild> m_AllBundleInputDefs;
         List<string> m_OutputAssetBundleNames;
         HashSet<string> m_CreatedProviderIds;
-        UnityEditor.Build.Pipeline.Utilities.LinkXmlGenerator m_Linker;
-        Dictionary<string, string> m_BundleToInternalId = new Dictionary<string, string>();
+        protected UnityEditor.Build.Pipeline.Utilities.LinkXmlGenerator m_Linker;
+        protected Dictionary<string, string> m_BundleToInternalId = new Dictionary<string, string>();
         private string m_CatalogBuildPath;
 
         internal List<ObjectInitializationData> ResourceProviderData => m_ResourceProviderData.ToList();
@@ -145,7 +145,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             m_CreatedProviderIds = new HashSet<string>();
         }
 
-        struct SBPSettingsOverwriterScope : IDisposable
+        protected struct SBPSettingsOverwriterScope : IDisposable
         {
             bool m_PrevSlimResults;
 
@@ -186,7 +186,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             return value;
         }
 
-        void AddBundleProvider(BundledAssetGroupSchema schema)
+        protected void AddBundleProvider(BundledAssetGroupSchema schema)
         {
             var bundleProviderId = schema.GetBundleCachedProviderId();
 
@@ -492,7 +492,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             return genericResult;
         }
 
-        private static void ProcessCatalogEntriesForBuild(AddressableAssetsBuildContext aaContext,
+        protected static void ProcessCatalogEntriesForBuild(AddressableAssetsBuildContext aaContext,
             IEnumerable<AddressableAssetGroup> validGroups, AddressablesDataBuilderInput builderInput, IBundleWriteData writeData,
             ContentUpdateContext contentUpdateContext, Dictionary<string, string> bundleToInternalId, Dictionary<string, ContentCatalogDataEntry> locationIdToCatalogEntryMap)
         {
@@ -513,7 +513,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             bundleToInternalId.Clear();
         }
 
-        private static Dictionary<string, ContentCatalogDataEntry> BuildLocationIdToCatalogEntryMap(List<ContentCatalogDataEntry> locations)
+        protected static Dictionary<string, ContentCatalogDataEntry> BuildLocationIdToCatalogEntryMap(List<ContentCatalogDataEntry> locations)
         {
             Dictionary<string, ContentCatalogDataEntry> locationIdToCatalogEntryMap = new Dictionary<string, ContentCatalogDataEntry>();
             foreach (var location in locations)
@@ -522,7 +522,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             return locationIdToCatalogEntryMap;
         }
 
-        private static Dictionary<string, CachedAssetState> BuildGuidToCachedAssetStateMap(AddressablesContentState contentState, AddressableAssetSettings settings)
+        protected static Dictionary<string, CachedAssetState> BuildGuidToCachedAssetStateMap(AddressablesContentState contentState, AddressableAssetSettings settings)
         {
             Dictionary<string, CachedAssetState> addressableEntryToCachedStateMap = new Dictionary<string, CachedAssetState>();
             foreach (var cachedInfo in contentState.cachedInfos)
@@ -1074,7 +1074,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
         // and isn't needed for most tests.
         internal static bool s_SkipCompilePlayerScripts = false;
 
-        static IList<IBuildTask> RuntimeDataBuildTasks(string builtinShaderBundleName, string monoScriptBundleName)
+        protected static IList<IBuildTask> RuntimeDataBuildTasks(string builtinShaderBundleName, string monoScriptBundleName)
         {
             var buildTasks = new List<IBuildTask>();
 
@@ -1136,7 +1136,7 @@ namespace UnityEditor.AddressableAssets.Build.DataBuilders
             }
         }
 
-        void PostProcessBundles(AddressableAssetGroup assetGroup, IBundleBuildResults buildResult, AddressablesPlayerBuildResult addrResult, FileRegistry registry,
+        protected void PostProcessBundles(AddressableAssetGroup assetGroup, IBundleBuildResults buildResult, AddressablesPlayerBuildResult addrResult, FileRegistry registry,
             AddressableAssetsBuildContext aaContext, Dictionary<string, string> bundleRenameMap, List<Action> postCatalogUpdateCallbacks)
         {
             var schema = assetGroup.GetSchema<BundledAssetGroupSchema>();

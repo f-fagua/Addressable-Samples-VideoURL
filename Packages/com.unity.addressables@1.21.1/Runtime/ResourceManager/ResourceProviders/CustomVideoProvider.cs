@@ -10,7 +10,7 @@ namespace UnityEngine.ResourceManagement.ResourceProviders
     /// Provides raw text from a local or remote URL.
     /// </summary>
     [DisplayName("Video URL Provider")]
-    public class CustomVideoProvider : ResourceProviderBase
+    public sealed class CustomVideoProvider : ResourceProviderBase
     {
         /// <summary>
         /// Controls whether errors are logged - this is disabled when trying to load from the local cache since failures are expected
@@ -26,6 +26,8 @@ namespace UnityEngine.ResourceManagement.ResourceProviders
 
             private float GetPercentComplete()
             {
+                if (m_Complete)
+                    return 1f;
                 return 0.0f;
             }
             
@@ -56,9 +58,20 @@ namespace UnityEngine.ResourceManagement.ResourceProviders
                 }
             }
         }
+        
+        /// <summary>
+        /// Method to convert the text into the object type requested.  Usually the text contains a JSON formatted serialized object.
+        /// </summary>
+        /// <param name="type">The object type the text is converted to.</param>
+        /// <param name="text">The text to be converted.</param>
+        /// <returns>The converted object.</returns>
+        public object Convert(Type type, string text)
+        {
+            return text;
+        }
 
         /// <summary>
-        /// Provides raw text data from the location.
+        /// Provides the URL from the location.
         /// </summary>
         /// <param name="provideHandle">The data needed by the provider to perform the load.</param>
         public override void Provide(ProvideHandle provideHandle)
