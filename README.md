@@ -2,7 +2,7 @@
 
 <p>By default, each addressable entry loads the corresponding asset as it is. This is the workflow that 99.9999% of users expect. However, there are cases in which developers need an edited version of the asset (HD or SD versions of a sprite) or even a completely different object. For example, regarding video assets, there are commonly used 3rd party plugins that do not take the packed video within the bundles; instead, they need the video bytes or the file URL to playback the video.</p>
 
-<p>This example is a workaround for the above case. Before starting the build, it creates a scriptable object with the asset path and produces a customizable URL. The scriptable object replaces the Addressable video entry but keeps the same key, `Assets/Videos/My Video.mp4`. Thus, in runtime, users can load this SO and ask for its URL.</p>
+<p>This example is a workaround for the above case. Before starting the build, it creates a scriptable object with the asset path and produces a customizable URL. The scriptable object replaces the Addressable video entry but keeps the same key, <code>Assets/Videos/My Video.mp4</code>. Thus, in runtime, users can load this SO and ask for its URL.</p>
 
 <h2>What is the purpose of this example?</h2>
 
@@ -21,7 +21,7 @@
 <ol>
 	<li>Import the project.</li>
 	<li>Make the Addressables build.</li>
-	<li>Set the Addressables play mode to `Use Existing Build.` </li>
-	<li>Open the `SampleScene`.</li>
+	<li>Set the Addressables play mode to <code>Use Existing Build</code>.</li>
+	<li>Open the <code>SampleScene</code>.</li>
 	<li>Hit play and check the console. The loading script should print the video URL</li>
 </ol>
